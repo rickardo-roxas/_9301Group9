@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 /**
  * Group 9:
  * <p>
@@ -12,6 +10,9 @@ import javax.swing.*;
  * The Fraction class.
  * A template for a fraction that has the form numerator/denominator.
  */
+
+import javax.swing.*;
+
 public class Fraction {
     // object fields
     private int numerator; // holds the numerator for this fraction
