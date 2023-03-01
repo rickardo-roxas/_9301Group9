@@ -1,3 +1,4 @@
+/*
 /**
  * Group 9
  * <p>
@@ -25,20 +26,32 @@
  *
  * </p>
  */
-
+/*
+  3.3.1. If fraction 1 != null && fraction 2 = null
+                       Display prompt message
+                        Go to 3.2
+ *                  3.3.2. If fraction 1 = null && fraction 2 != null
+ *                      Display prompt message
+ *                      Go to 3.1
+ *                  3.3.3. Else
+ *                      Invoke add method
+ *                      Repeat 2
+ */
 import javax.swing.*;
 import java.util.Scanner;
 import java.lang.*;
 
 public class FractionArithmetic {
-    static Scanner keyboard = new Scanner(System.in);
-    static String inputString = "";
-    static String outputString = "";
+
+}
+    //static Scanner keyboard = new Scanner(System.in);
+    //static String inputString = "";
+    // static String outputString = "";
 
     /**
      * Main entry point of the program.
      * @param args command line arguments.
-     */
+
     public static void main(String[] args) {
         int wholeNumVal = 0;
         Fraction fraction = new Fraction(wholeNumVal); //to access the operational methods of Fraction class
@@ -179,7 +192,7 @@ public class FractionArithmetic {
             }
         } while (choice < 8);
          */
-    } // end of main method
+     // end of main method
 
     /*
     /**
@@ -227,11 +240,12 @@ public class FractionArithmetic {
     }
      */
 
+    /*
     /**
      * Reads/Accepts user input for fraction 1 with its numerator and denominator.
      * @param wholeNumVal default or user-defined fraction
      * @return user input of fraction 1
-     */
+
     public static Fraction fraction1(int wholeNumVal) {
         Fraction operand1;
         operand1 = enterFraction("fraction 1", wholeNumVal);
@@ -244,7 +258,7 @@ public class FractionArithmetic {
     /**
      * Reads/Accepts user input for fraction 2 with its numerator and denominator.
      * @return user input of fraction 2
-     */
+
     public static Fraction fraction2() {
         Fraction operand2;
         int wholeNumVal = 0;
@@ -261,6 +275,7 @@ public class FractionArithmetic {
      * @param wholeNumVal default or user-defined fraction
      * @return user input of fraction
      */
+/*
     private static Fraction enterFraction(String operand, int wholeNumVal) {
         Fraction fraction = null;
         int numerator = 0, denominator;
@@ -274,13 +289,15 @@ public class FractionArithmetic {
             return fraction;
         } // end of try-catch
     } // end of enterFraction method
-
+*/
+    /*
     /**
      * Changes the value of the numerator or denominator of the fraction.
      * @param part numerator or denominator
      * @param fractionInfo fraction
      * @return user input of fraction numerator or denominator
      */
+    /*
     private static int enterFractionData(String part, String fractionInfo) {
         // Scanner keyboard = new Scanner(System.in);
         int input;
@@ -292,7 +309,7 @@ public class FractionArithmetic {
                         part + "of " + fractionInfo + ": "));
                 // System.out.print("Enter " + part + " of " + fractionInfo + ": ");
 
-                /* If zero is the denominator entered, the user needs to change it. */
+
                 if (part.equalsIgnoreCase("denominator") && input == 0)
                     JOptionPane.showMessageDialog(null, "Entered denominator is zero." +
                             "Operations will be undefined. Enter a new one.");
@@ -312,31 +329,5 @@ public class FractionArithmetic {
         return input;
     } // end of enterFractionData method
 
-    public static void showIntroduction() {
-        JOptionPane.showMessageDialog(null, "Welcome to our \n" +
-                "Fraction Calculator");
-    } // end of showIntroduction method
-
-    public static int showGUIMenu() {
-        int[] choices = { 1,2,3,4,5,6,7,8};
-        int index = 0;
-
-        String[] choiceOptions = {"1","2","3","4","5","6","7","8"};
-        JOptionPane.showInputDialog(null,
-                """
-                        1. Enter the value of fraction 1\s
-                        2. Enter the value of fraction 2\s
-                        3. Add fractions\s
-                        4. Subtract fractions\s
-                        5. Multiply fractions\s
-                        6. Divide fractions\s
-                        7. Reduce fractions\s
-                        8. Quit\s
-
-                        Input the number corresponding to your choice.""",
-                "Fraction Calculator" , JOptionPane.QUESTION_MESSAGE, null , choiceOptions, choices[1]);
-        return choices[index];
-    } // end of showGUIMenu method
-
 } // end of class FractionArithmetic
-
+*/

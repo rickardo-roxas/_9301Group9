@@ -22,6 +22,7 @@ public class Fraction {
      * Constructs a fraction with numerator = 0 and denominator = 1.
      * This constructor allows a Fraction with an equivalent numeric value of zero.
      * This becomes the default constructor.
+     *
      * @param wholeNumVal whole number fraction
      */
     public Fraction(int wholeNumVal) {
@@ -31,9 +32,10 @@ public class Fraction {
     /**
      * Constructs a Fraction using a given numerator and denominator.
      * <p>
-     *     Example: Fraction f = new Fraction( 3, 8);
+     * Example: Fraction f = new Fraction( 3, 8);
      * </p>
-     * @param numerator value of the numerator
+     *
+     * @param numerator   value of the numerator
      * @param denominator value of the denominator
      */
     public Fraction(int numerator, int denominator) {
@@ -44,6 +46,7 @@ public class Fraction {
     /**
      * Mutator/Setter Method for numerator of a fraction.
      * Sets the value of the numerator of this fraction to n.
+     *
      * @param n The numerator to assign
      */
     public void setNumerator(int n) {
@@ -52,6 +55,7 @@ public class Fraction {
 
     /**
      * Accessor/Getter Method for numerator of a fraction.
+     *
      * @return The value of the numerator of this fraction
      */
     public int getNumerator() {
@@ -61,6 +65,7 @@ public class Fraction {
     /**
      * Mutator/Setter Method for denominator of a fraction.
      * Sets the value of the denominator of this fraction to d
+     *
      * @param d The denominator to assign
      */
     public void setDenominator(int d) {
@@ -69,6 +74,7 @@ public class Fraction {
 
     /**
      * Accessor/Getter Method for denominator of a fraction.
+     *
      * @return The value of the denominator of this fraction
      */
     public int getDenominator() {
@@ -82,7 +88,7 @@ public class Fraction {
      */
     public String toString() { // this is an overridden method from the Object class
         // String r = JOptionPane.showMessageDialog(null, r);
-        if ( numerator == 0 )
+        if (numerator == 0)
             // r = "0";
             JOptionPane.showMessageDialog(null, numerator);
         else if (denominator == 1)
@@ -105,19 +111,21 @@ public class Fraction {
     /**
      * Reduces the fraction to its simplest form
      * @return The reduced (simplest) form of this fraction
-     */
+
     public Fraction reduce(int wholeNumVal) {
-        Fraction r = new Fraction(wholeNumVal); // constructs a fraction
-        int GCD = computeGCD(); // determine the greatest common factor of numerator and denominator
-        int newN = numerator / GCD;   //compute newN, the numerator's simplest form
-        int newD = denominator / GCD; //compute newD, denominator's simplest form
-        r.setNumerator(newN); // sets the new value of the numerator in its simplest form
-        r.setDenominator(newD);// sets the new value of the denominator in its simplest form newD
-        return r; // returns the simplest form of this fraction
+    Fraction r = new Fraction(wholeNumVal); // constructs a fraction
+    int GCD = computeGCD(); // determine the greatest common factor of numerator and denominator
+    int newN = numerator / GCD;   //compute newN, the numerator's simplest form
+    int newD = denominator / GCD; //compute newD, denominator's simplest form
+    r.setNumerator(newN); // sets the new value of the numerator in its simplest form
+    r.setDenominator(newD);// sets the new value of the denominator in its simplest form newD
+    return r; // returns the simplest form of this fraction
     } // end of reduce method
+     */
 
     /**
      * Computes the greatest common factor of the numerator and denominator
+     *
      * @return The greatest common factor
      */
     private int computeGCD() {
@@ -136,11 +144,12 @@ public class Fraction {
 
     /**
      * Returns the lesser number of the two parameters.
+     *
      * @param n1 The first number to compare.
      * @param n2 The second number to compare.
      * @return The lesser value of integer between n1 and n2.
      */
-    private int computeLesser (int n1, int n2) {
+    private int computeLesser(int n1, int n2) {
         int lesser = n1;
         if (n1 < n2)
             lesser = n1;
@@ -148,13 +157,15 @@ public class Fraction {
             lesser = n2;
         return lesser;
     } // end of computeLesser method
+}
 
+    /*
     /**
      * Adds the two fractions.
      * @param addend first fraction
      * @param wholeNumVal default or user-defined fraction
      * @return sum of the two fractions in the simplest form.
-     */
+
     public Fraction add(Fraction addend, int wholeNumVal) {
         Fraction sum = new Fraction(wholeNumVal); // instantiates a new object of sum
         int den = denominator * addend.getDenominator(); // holds the value of denominator
@@ -170,7 +181,7 @@ public class Fraction {
      * @param subtrahend the subtrahend fraction
      * @param wholeNumVal default or user-defined fraction
      * @return the difference of this fraction and another fraction
-     */
+
     public Fraction subtract(Fraction subtrahend, int wholeNumVal) {
         Fraction difference = new Fraction(wholeNumVal); // instantiates a new object of difference
         int num = numerator * subtrahend.getDenominator() - subtrahend.getNumerator() * denominator;
@@ -180,12 +191,12 @@ public class Fraction {
         return difference.reduce(wholeNumVal); // invokes a method to reduce the difference in its simplest form
     } // end of subtract method
 
-    /**
+
      * Multiplies the two fractions
      * @param multiplier  The multiplier fraction
      * @param wholeNumVal default or user-defined fraction
      * @return The product of this fraction and another fraction
-     */
+
     public Fraction multiplyBy(Fraction multiplier, int wholeNumVal) {
         Fraction product = new Fraction(wholeNumVal);
         int num = numerator * multiplier.getNumerator();
@@ -200,7 +211,7 @@ public class Fraction {
      * @param divisor The divisor fraction
      * @param wholeNumVal default or user-defined fraction
      * @return The quotient of this fraction and another fraction
-     **/
+
     public Fraction divideBy(Fraction divisor, int wholeNumVal) {
         Fraction quotient = new Fraction(wholeNumVal);
         int num = numerator * divisor.getDenominator();
@@ -210,4 +221,4 @@ public class Fraction {
         return quotient.reduce(wholeNumVal);
     } // end of divideBy method
 } // end of Fraction class
-
+*/
