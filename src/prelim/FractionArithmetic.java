@@ -107,13 +107,11 @@
  *          4.1. Go to 5
  *          4.2. Go to 6
  *      5. readNumerator method
- *
- *
- *
+ *          // TO DO
  * </p>
  * Sample Run
  * <p>
- *
+ *  // TO DO
  * </p>
  */
 package prelim;
@@ -141,6 +139,7 @@ public class FractionArithmetic {
         do {
             choice = showMenu();
             userChoice = convertChoices(choice);
+            System.out.println("User choice: " + userChoice);
 
             switch (userChoice) {
                 case 1:
@@ -223,15 +222,16 @@ public class FractionArithmetic {
      * @param promptMessage Fraction object (Fraction1 or Fraction2)
      * @return new Fraction object
      */
-    private static Fraction readFraction(String promptMessage) {
+    protected static Fraction readFraction(String promptMessage) {
         Fraction fraction = new Fraction();
         int numerator = 0; // holds the value of numerator of Fraction
         int denominator = 0; // holds the value of denominator of Fraction
 
         try {
             numerator = readNumerator("Numerator for " + promptMessage);
+            fraction.setNumerator(numerator);
             denominator = readDenominator("Denominator for " + promptMessage);
-            fraction = new Fraction(numerator, denominator); // instantiates new Fraction with given attribute values
+            fraction.setDenominator(denominator);
         } catch (NoNumeratorException | NoDenominatorException noNumerator) {
             fraction = new Fraction(); // instantiates new Fraction with default values
         } finally {
@@ -245,7 +245,7 @@ public class FractionArithmetic {
      * @param promptMessage required user input of numerator
      * @return user input of numerator
      */
-    private static int readNumerator(String promptMessage) {
+    protected static int readNumerator(String promptMessage) {
         JDialog.setDefaultLookAndFeelDecorated(true);
         int numerator = 0;
 
@@ -261,7 +261,7 @@ public class FractionArithmetic {
      * @param promptMessage required user input of denominator
      * @return user input of denominator
      */
-    private static int readDenominator(String promptMessage) {
+    protected static int readDenominator(String promptMessage) {
         JDialog.setDefaultLookAndFeelDecorated(true);
         int denominator = 0;
 
@@ -277,9 +277,9 @@ public class FractionArithmetic {
      * @param fraction given Fraction
      * @param promptMessage type of output
      */
-    private static void displayFraction(String fraction, String promptMessage) {
+    protected static void displayFraction(String fraction, String promptMessage) {
         JDialog.setDefaultLookAndFeelDecorated(true);
-        JOptionPane.showMessageDialog(null, promptMessage + ": " + fraction,
+        JOptionPane.showMessageDialog(null, promptMessage + ": \n " + fraction,
                 "Fraction Calculator", JOptionPane.INFORMATION_MESSAGE);
     } // end of showFraction method
 
@@ -288,9 +288,9 @@ public class FractionArithmetic {
      * @param decimal given Fraction converted to decimal
      * @param promptMessage type of output
      */
-    private static void displayDecimal(double decimal, String promptMessage) {
+    protected static void displayDecimal(double decimal, String promptMessage) {
         JDialog.setDefaultLookAndFeelDecorated(true);
-        JOptionPane.showMessageDialog(null, promptMessage + ": " + decimal,
+        JOptionPane.showMessageDialog(null, promptMessage + ": \n" + decimal,
                 "Fraction Calculator", JOptionPane.INFORMATION_MESSAGE);
     } // end of displayDecimal method
 
@@ -309,7 +309,8 @@ public class FractionArithmetic {
                  \t\tRAMOS, Jerwin Kyle R.\s
                  \t\tROQUE, Rey Daniel L.\s
                  \t\tROXAS, Johan Rickardo A.\s
-                -------------------------------------------- 9301 CS 122 - Computer Programming 2\s
+                --------------------------------------------\s
+                 9301 CS 122 - Computer Programming 2\s
                  AY 2022-2023\s""";
         JOptionPane.showMessageDialog(null, outputString);
         // second page
@@ -382,8 +383,8 @@ public class FractionArithmetic {
      */
     protected static void showSolution(Fraction operand1, Fraction operand2, String operation, String promptMessage,
                                        String answerFraction, double answerDecimal) {
-        System.out.printf("%-20s %-5s %-20s" , "Fraction 1" , "" , "Fraction 2");
-        System.out.printf("%-20s %-5s %-20s" , operand1.toString() , operation , operand2.toString());
-        System.out.printf("%-20s %-5s %-20f" , answerFraction , "or" , answerDecimal);
+        System.out.printf("%-20s %-5s %-20s %n" , "Fraction 1" , "" , "Fraction 2");
+        System.out.printf("%-20s %-5s %-20s %n" , operand1.toString() , operation , operand2.toString());
+        System.out.printf("%-20s %-5s %-20f %n" , answerFraction , "or" , answerDecimal);
     } // end of showSolution method
 } // end of class FractionArithmetic
