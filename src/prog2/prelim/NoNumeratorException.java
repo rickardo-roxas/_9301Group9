@@ -13,7 +13,7 @@
  * An exception that throws when a Fraction's numerator is null.
  * The default constructed Fraction will be instantiated.
  */
-package prelim;
+package prog2.prelim;
 
 import javax.swing.*;
 

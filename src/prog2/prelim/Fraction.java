@@ -12,7 +12,7 @@
  * The Fraction class.
  * A template for a fraction that has the form numerator/denominator.
  */
-package prelim;
+package prog2.prelim;
 
 public class Fraction {
     private int numerator; // holds the numerator for Fraction

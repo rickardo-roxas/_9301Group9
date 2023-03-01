@@ -114,7 +114,7 @@
  *  // TO DO
  * </p>
  */
-package prelim;
+package prog2.prelim;
 
 import javax.swing.*;
 import java.lang.*;
