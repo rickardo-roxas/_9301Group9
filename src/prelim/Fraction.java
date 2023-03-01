@@ -98,7 +98,7 @@ public class Fraction {
 
     /**
      * Computes for the greatest common divisor of two numbers.
-     * This method uses the Euclid's Algorithm and recursion:
+     * This method uses the Euclid's Algorithm and iteration:
      * <p>
      *     a: first number
      *     b: second number
