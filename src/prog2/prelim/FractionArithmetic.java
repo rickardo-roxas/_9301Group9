@@ -118,6 +118,7 @@ package prog2.prelim;
 
 import javax.swing.*;
 import java.lang.*;
+import java.util.InputMismatchException;
 
 public class FractionArithmetic {
     static String inputString = ""; // static object for input
@@ -131,63 +132,77 @@ public class FractionArithmetic {
     public static void main(String[] args) {
         Fraction fraction1 = new Fraction(); // instantiates fraction1 with default attribute values
         Fraction fraction2 = new Fraction(); // instantiates fraction2 with default attribute values
-        String choice = "";
-        int userChoice = 0;
+        String choice = ""; // choice returned from showMenu method
+        int userChoice = 0; // String choice converted to using convertChoices method
 
         showIntroduction();
 
         do {
-            choice = showMenu();
-            userChoice = convertChoices(choice);
-            System.out.println("User choice: " + userChoice);
+            choice = showMenu(); // invokes showMenu method that returns a String choice
+            userChoice = convertChoices(choice); // converts String choice to int using String.valueOf
+            System.out.println("User choice: " + userChoice); // prints the current user choice in the console
 
             switch (userChoice) {
-                case 1:
-                    fraction1 = fraction1();
+                case 1: // Value for Fraction1
+                    fraction1 = fraction1(); // instantiates a new Fraction as fraction1
                     break;
-                case 2:
-                    fraction2 = fraction2();
+                case 2: // Value for Fraction1
+                    fraction2 = fraction2(); // instantiates a new Fraction as fraction2
                     break;
-                case 3:
-                    outputString = fraction1.add(fraction2).toString();
+                case 3: // Add Fraction1 and Fraction 2
+                    outputString = fraction1.add(fraction2).toString(); // fraction form
                     displayFraction(outputString, "Sum in Simplified Fraction Form");
-                    output = fraction1.add(fraction2).toDouble();
+                    output = fraction1.add(fraction2).toDouble(); // decimal form
                     displayDecimal(output, "Sum in Decimal Form");
                     showSolution(fraction1, fraction2, "+","Sum", outputString, output);
                     break;
-                case 4:
-                    outputString = fraction1.subtract(fraction2).toString();
+                case 4: // Subtract Fraction1 and Fraction 2
+                    outputString = fraction1.subtract(fraction2).toString(); // fraction form
                     displayFraction(outputString, "Difference in Simplified Fraction Form");
-                    output = fraction1.subtract(fraction2).toDouble();
+                    output = fraction1.subtract(fraction2).toDouble(); // decimal form
                     displayDecimal(output, "Difference in Decimal Form");
                     showSolution(fraction1, fraction2, "-","Difference", outputString, output);
                     break;
-                case 5:
-                    outputString = fraction1.multiplyBy(fraction2).toString();
+                case 5: // Multiply Fraction1 and Fraction 2
+                    outputString = fraction1.multiplyBy(fraction2).toString(); // fraction form
                     displayFraction(outputString, "Product in Simplified Fraction Form");
-                    output = fraction1.multiplyBy(fraction2).toDouble();
+                    output = fraction1.multiplyBy(fraction2).toDouble(); // decimal form
                     displayDecimal(output, "Product in Simplified Form");
                     showSolution(fraction1, fraction2, "x","Product", outputString, output);
                     break;
-                case 6:
-                    outputString = fraction1.divideBy(fraction2).toString();
+                case 6: // Divide Fraction1 and Fraction 2
+                    outputString = fraction1.divideBy(fraction2).toString(); // fraction form
                     displayFraction(outputString, "Quotient in Simplified Fraction Form");
-                    output = fraction2.multiplyBy(fraction2).toDouble();
+                    output = fraction2.multiplyBy(fraction2).toDouble(); // decimal form
                     displayDecimal(output, "Quotient in Decimal Form");
                     showSolution(fraction1, fraction2, "/","Quotient", outputString, output);
                     break;
-                case 7:
-                    outputString = fraction1.reduce().toString();
-                    displayFraction(outputString, "Reduced Fraction 1 in Simplified Fraction Form");
-                    output = fraction1.reduce().toDouble();
-                    displayDecimal(output, "Reduced Fraction 1 in Decimal Form");
-                    outputString = fraction2.reduce().toString();
-                    displayFraction(outputString, "Reduced Fraction 2 in Simplified Fraction Form");
-                    output = fraction2.reduce().toDouble();
-                    displayDecimal(output, "Reduced Fraction 2 in Decimal Form");
+                case 7: // Reduce certain Fractions
+                    choice = showMenuReduce();
+                    userChoice = convertChoices(choice);
+                    if (userChoice == 1) { // reduce Fraction1 only
+                        outputString = fraction1.reduce().toString(); // fraction form
+                        displayFraction(outputString, "Reduced Fraction 1 in Simplified Fraction Form");
+                        output = fraction1.reduce().toDouble(); // decimal form
+                        displayDecimal(output, "Reduced Fraction 1 in Decimal Form");
+                    } else if (userChoice == 2) { // reduce Fraction2 only
+                        outputString = fraction2.reduce().toString(); // fraction form of Fraction2
+                        displayFraction(outputString, "Reduced Fraction 2 in Simplified Fraction Form");
+                        output = fraction2.reduce().toDouble();
+                        displayDecimal(output, "Reduced Fraction 2 in Decimal Form");
+                    } else { // reduce both fractions
+                        outputString = fraction1.reduce().toString(); // fraction form
+                        displayFraction(outputString, "Reduced Fraction 1 in Simplified Fraction Form");
+                        output = fraction1.reduce().toDouble(); // decimal form
+                        displayDecimal(output, "Reduced Fraction 1 in Decimal Form");
+                        outputString = fraction2.reduce().toString(); // fraction form of Fraction2
+                        displayFraction(outputString, "Reduced Fraction 2 in Simplified Fraction Form");
+                        output = fraction2.reduce().toDouble();
+                        displayDecimal(output, "Reduced Fraction 2 in Decimal Form");
+                    } // end of if-else
                     break;
-                case 8:
-                    showOutro();
+                case 8: // Exit the program
+                    showOutro(); // a simple "Thank you message"
                     System.exit(0);
                     break;
                 default:
@@ -223,52 +238,74 @@ public class FractionArithmetic {
      * @return new Fraction object
      */
     protected static Fraction readFraction(String promptMessage) {
-        Fraction fraction = new Fraction();
+        Fraction fraction = new Fraction(); // instantiates Fraction with default values
         int numerator = 0; // holds the value of numerator of Fraction
         int denominator = 0; // holds the value of denominator of Fraction
 
         try {
             numerator = readNumerator("Numerator for " + promptMessage);
-            fraction.setNumerator(numerator);
+            fraction.setNumerator(numerator); // mutates numerator with user given integer
             denominator = readDenominator("Denominator for " + promptMessage);
-            fraction.setDenominator(denominator);
-        } catch (NoNumeratorException | NoDenominatorException noNumerator) {
+            fraction.setDenominator(denominator); // mutates denominator with user given integer
+        } catch (NoNumeratorException | NoDenominatorException noNumerator) { // no values given
             fraction = new Fraction(); // instantiates new Fraction with default values
         } finally {
-            System.out.println(promptMessage + ": " + fraction);
-            return fraction;
+            System.out.println(promptMessage + ": " + fraction); // displays fraction in the console
+            return fraction; // new Fraction with user given attributes
         } // end of try-catch
     } // end of readFraction method
 
     /**
      * Reads and accepts user input of numerator of a given Fraction
+     * Throws an exception when input is not an integer.
      * @param promptMessage required user input of numerator
      * @return user input of numerator
      */
     protected static int readNumerator(String promptMessage) {
         JDialog.setDefaultLookAndFeelDecorated(true);
+        boolean validNumerator = false;
         int numerator = 0;
 
-        inputString = JOptionPane.showInputDialog(null, promptMessage + ": ",
-                "Fraction Calculator" , JOptionPane.PLAIN_MESSAGE);
-        numerator = Integer.parseInt(inputString);
-
+        while (!validNumerator) {
+            try {
+                inputString = JOptionPane.showInputDialog(null, promptMessage + ": ",
+                        "Fraction Calculator" , JOptionPane.PLAIN_MESSAGE);
+                numerator = Integer.parseInt(inputString);
+                validNumerator = true;
+            } catch (InputMismatchException exception) { // exception if input is not an integer
+                outputString = "Invalid Input. Numerator must be an integer.";
+                JOptionPane.showMessageDialog(null, outputString,
+                        "Fraction Calculator" , JOptionPane.ERROR_MESSAGE);
+                validNumerator = false;
+            } // end of try-catch
+        } // end of while
         return numerator;
     } // end of readNumerator method
 
     /**
      * Reads and Accepts user input of denominator of a given Fraction
+     * Throws an exception when input is not an integer.
      * @param promptMessage required user input of denominator
      * @return user input of denominator
      */
     protected static int readDenominator(String promptMessage) {
         JDialog.setDefaultLookAndFeelDecorated(true);
+        boolean validDenominator = false;
         int denominator = 0;
 
-        inputString = JOptionPane.showInputDialog(null, promptMessage + ": ",
-                "Fraction Calculator" , JOptionPane.PLAIN_MESSAGE);
-        denominator = Integer.parseInt(inputString);
-
+        while (!validDenominator) {
+            try {
+                inputString = JOptionPane.showInputDialog(null, promptMessage + ": ",
+                        "Fraction Calculator" , JOptionPane.PLAIN_MESSAGE);
+                denominator = Integer.parseInt(inputString);
+                validDenominator = true;
+            } catch (InputMismatchException exception) { // exception if input is not an integer
+                outputString = "Invalid Input. Denominator must be an integer.";
+                JOptionPane.showMessageDialog(null, outputString,
+                        "Fraction Calculator" , JOptionPane.ERROR_MESSAGE);
+                validDenominator = false;
+            } // end of try-catch
+        } // end of while
         return denominator;
     } // end of readDenominator method
 
@@ -344,14 +381,13 @@ public class FractionArithmetic {
      * Displays the menu of possible user options.
      * Options are enumerated.
      * userChoices can be accessed using a dropdown menu.
-     * userChoice[1] is the default value.
-     * @return element of user choice
+     * userChoice[1] is the default Option.
+     * @return Option string
      */
     private static String showMenu() {
         JDialog.setDefaultLookAndFeelDecorated(true);
         String[] options = {"1","2","3","4","5","6","7","8"};
         int[] userChoices = {1,2,3,4,5,6,7,8};
-        int input = 0;
         outputString = """
                 1. Enter the value of Fraction 1
                 2. Enter the value of Fraction 2
@@ -368,6 +404,27 @@ public class FractionArithmetic {
     } // end of showMenu method
 
     /**
+     * Displays the menu of possible user options when Reduce a Fraction is invoked
+     * Options are enumerated.
+     * userChoices can be accessed using a dropdown menu.
+     * userChoice[1] is the default Option.
+     * @return Option string
+     */
+    private static String showMenuReduce() {
+        JDialog.setDefaultLookAndFeelDecorated(true);
+        String[] options = {"1","2","3"};
+        String[] userChoices = {"Reduce Fraction1","Reduce Fraction2","Reduce Fraction1 and Fraction2"};
+        outputString = """
+                1. Reduce Fraction1 in its Simplest Form
+                2. Reduce Fraction2 in its Simplest Form
+                3. Reduce Fraction1 and Fraction2 in their Simplest Form""";
+        inputString = (String) JOptionPane.showInputDialog(null,
+                outputString, "Fraction Calculator",
+                JOptionPane.QUESTION_MESSAGE, null, options, userChoices[1]);
+        return inputString;
+    } // end of showMenuReduce method
+
+    /**
      * Converts the userChoice of array to an integer to be used in the main method.
      * @param givenChoice choice (String)
      * @return choice (integer)
@@ -379,7 +436,7 @@ public class FractionArithmetic {
     } // end of convertChoices method
 
     /**
-     * Displays the solution in the console.
+     * Displays the solution in the console during arithmetic operations.
      */
     protected static void showSolution(Fraction operand1, Fraction operand2, String operation, String promptMessage,
                                        String answerFraction, double answerDecimal) {
