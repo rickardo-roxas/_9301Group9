@@ -109,9 +109,58 @@
  *      5. readNumerator method
  *          // TO DO
  * </p>
- * Sample Run
+ * Sample Run in the console
  * <p>
- *  // TO DO
+ *     User choice: 1
+ *     Fraction 1: 1/3
+ *     User choice: 2
+ *     Fraction 2: 1/2
+ *     User choice: 3
+ *     Fraction 1            Fraction 2
+ *     1/3        +          1/2
+ *     Sum
+ *     5/6        or         0.833333
+ *     User choice: 4
+ *     Fraction 1            Fraction 2
+ *     1/3        -          1/2
+ *     Difference
+ *     -2/3       or         -0.666667
+ *     User choice: 5
+ *     Fraction 1            Fraction 2
+ *     1/3        x          1/2
+ *     Product
+ *     1/6        or         0.166667
+ *     User choice: 6
+ *     Fraction 1            Fraction 2
+ *     1/3        /          1/2
+ *     Quotient
+ *     2/3        or         0.250000
+ *     User choice: 7
+ *     User choice: 1
+ *     Fraction 1: 2/3
+ *     User choice: 3
+ *     Fraction 1            Fraction 2
+ *     2/3        +          1/2
+ *     Sum
+ *     7/6        or         1.166667
+ *     User choice: 4
+ *     Fraction 1            Fraction 2
+ *     2/3        -          1/2
+ *     Difference
+ *     1/-3       or         -0.333333
+ *     User choice: 5
+ *     Fraction 1            Fraction 2
+ *     2/3        x          1/2
+ *     Product
+ *     1/3        or         0.333333
+ *     User choice: 6
+ *     Fraction 1            Fraction 2
+ *     2/3        /          1/2
+ *     Quotient
+ *     4/3        or         0.250000
+ *     User choice: 7
+ *     User choice: 8
+ *     Process finished with exit code 0
  * </p>
  */
 package prog2.prelim;
@@ -339,14 +388,14 @@ public class FractionArithmetic {
         // first page
         outputString = """
                  Welcome to our Fraction Calculator by Group 9
-                -------------------------------------------- \s
+                ------------------------------------------------------------------------------------------------- \s
                  Programmers:\s
-                 \t\tRABANG, Gebreyl Isaac P.\s
-                 \t\tRAGUDOS, Hannah T.\s
-                 \t\tRAMOS, Jerwin Kyle R.\s
-                 \t\tROQUE, Rey Daniel L.\s
-                 \t\tROXAS, Johan Rickardo A.\s
-                --------------------------------------------\s
+                 -> RABANG, Gebreyl Isaac P.\s
+                 -> RAGUDOS, Hannah T.\s
+                 -> RAMOS, Jerwin Kyle R.\s
+                 -> ROQUE, Rey Daniel L.\s
+                 -> ROXAS, Johan Rickardo A.\s
+                -------------------------------------------------------------------------------------------------\s
                  9301 CS 122 - Computer Programming 2\s
                  AY 2022-2023\s""";
         JOptionPane.showMessageDialog(null, outputString);
@@ -354,16 +403,16 @@ public class FractionArithmetic {
         outputString = """
                 This program will ask for your following inputs:\s
                  Fraction 1:\s
-                 \t\tNumerator\s
-                 \t\tDenominator\s
+                 -> Numerator\s
+                 -> Denominator\s
                  Fraction 2:\s
-                 \t\tNumerator\s
-                 \t\tDenominator\s
+                 -> Numerator\s
+                 -> Denominator\s
                  This program will compute the following:\s
-                 \t\tSum of Fraction 1 and Fraction 2\s
-                 \t\tDifference of Fraction 1 and Fraction 2\s
-                 \t\tProduct of Fraction 1 and Fraction 2\s
-                 \t\tQuotient of Fraction 1 and Fraction 2\s""";
+                 -> Sum of Fraction 1 and Fraction 2\s
+                 -> Difference of Fraction 1 and Fraction 2\s
+                 -> Product of Fraction 1 and Fraction 2\s
+                 -> Quotient of Fraction 1 and Fraction 2\s""";
         JOptionPane.showMessageDialog(null, outputString);
     } // end of showIntroduction method
 
@@ -440,8 +489,9 @@ public class FractionArithmetic {
      */
     protected static void showSolution(Fraction operand1, Fraction operand2, String operation, String promptMessage,
                                        String answerFraction, double answerDecimal) {
-        System.out.printf("%-20s %-5s %-20s %n" , "Fraction 1" , "" , "Fraction 2");
-        System.out.printf("%-20s %-5s %-20s %n" , operand1.toString() , operation , operand2.toString());
-        System.out.printf("%-20s %-5s %-20f %n" , answerFraction , "or" , answerDecimal);
+        System.out.printf("%-10s %-10s %-10s %n" , "Fraction 1" , "" , "Fraction 2");
+        System.out.printf("%-10s %-10s %-10s %n" , operand1.toString() , operation , operand2.toString());
+        System.out.printf("%-10s %n" , promptMessage);
+        System.out.printf("%-10s %-10s %-10f %n" , answerFraction , "or" , answerDecimal);
     } // end of showSolution method
 } // end of class FractionArithmetic
