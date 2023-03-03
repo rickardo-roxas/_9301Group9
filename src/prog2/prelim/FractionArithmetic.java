@@ -194,36 +194,41 @@ public class FractionArithmetic {
             switch (userChoice) {
                 case 1 -> // Value for Fraction1
                         fraction1 = fraction1(); // instantiates a new Fraction as fraction1
+
                 case 2 -> // Value for Fraction1
                         fraction2 = fraction2(); // instantiates a new Fraction as fraction2
+
                 case 3 -> { // Add Fraction1 and Fraction 2
                     outputString = fraction1.add(fraction2).toString(); // fraction form
                     displayFraction(outputString, "Sum in Simplified Fraction Form");
                     output = fraction1.add(fraction2).toDouble(); // decimal form
                     displayDecimal(output, "Sum in Decimal Form");
                     showSolution(fraction1, fraction2, "+", "Sum", outputString, output);
-                }
+                } // end of case 3
                 case 4 -> { // Subtract Fraction1 and Fraction 2
                     outputString = fraction1.subtract(fraction2).toString(); // fraction form
                     displayFraction(outputString, "Difference in Simplified Fraction Form");
                     output = fraction1.subtract(fraction2).toDouble(); // decimal form
                     displayDecimal(output, "Difference in Decimal Form");
                     showSolution(fraction1, fraction2, "-", "Difference", outputString, output);
-                }
+                } // end of case 4
+
                 case 5 -> { // Multiply Fraction1 and Fraction 2
                     outputString = fraction1.multiplyBy(fraction2).toString(); // fraction form
                     displayFraction(outputString, "Product in Simplified Fraction Form");
                     output = fraction1.multiplyBy(fraction2).toDouble(); // decimal form
                     displayDecimal(output, "Product in Simplified Form");
                     showSolution(fraction1, fraction2, "x", "Product", outputString, output);
-                }
+                } // end of case 5
+
                 case 6 -> { // Divide Fraction1 and Fraction 2
                     outputString = fraction1.divideBy(fraction2).toString(); // fraction form
                     displayFraction(outputString, "Quotient in Simplified Fraction Form");
                     output = fraction2.multiplyBy(fraction2).toDouble(); // decimal form
                     displayDecimal(output, "Quotient in Decimal Form");
                     showSolution(fraction1, fraction2, "/", "Quotient", outputString, output);
-                }
+                } // end of case 6
+
                 case 7 -> { // Reduce certain Fractions
                     choice = showMenuReduce();
                     userChoice = convertChoices(choice);
@@ -247,12 +252,14 @@ public class FractionArithmetic {
                         output = fraction2.reduce().toDouble();
                         displayDecimal(output, "Reduced Fraction 2 in Decimal Form");
                     } // end of if-else
-                }
+                } // end of case 7
+
                 case 8 -> { // Exit the program
                     showOutro(); // a simple "Thank you message"
                     System.exit(0);
-                }
-                default -> fraction1 = fraction1();
+                } // end of case 8
+
+                default -> fraction1 = fraction1(); // default case is inputting value of Fraction 1
             } // end of switch-case
         } while (userChoice < 8);
     } // end of main method
