@@ -396,7 +396,7 @@ public class FractionArithmetic {
     /**
      * Introduces the user to the program
      */
-    private static void showIntroduction() {
+     static void showIntroduction() {
         JDialog.setDefaultLookAndFeelDecorated(true);
         // first page
         outputString = """
@@ -432,7 +432,7 @@ public class FractionArithmetic {
     /**
      * Displays a "Thank You" message upon exit of application.
      */
-    private static void showOutro() {
+    public static void showOutro() {
         JDialog.setDefaultLookAndFeelDecorated(true);
         outputString = "Thank you for using the Fraction Calculator!";
         JOptionPane.showMessageDialog(null, outputString, "Fraction Calculator" ,
