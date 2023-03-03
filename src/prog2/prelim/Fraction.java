@@ -83,8 +83,7 @@ public class Fraction {
      * @return fraction as String
      */
     public String toString() {
-        String fraction = getNumerator() + "/" + getDenominator();
-        return fraction;
+        return getNumerator() + "/" + getDenominator();
     } // end of toString method
 
     /**
@@ -92,8 +91,7 @@ public class Fraction {
      * @return reduced fraction converted to decimal
      */
     public double toDouble() {
-        double reducedFraction = (double) getNumerator() / getDenominator();
-        return reducedFraction;
+        return (double) getNumerator() / getDenominator();
     } // end of toDouble method
 
     /**
