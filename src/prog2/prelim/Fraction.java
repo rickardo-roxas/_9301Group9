@@ -89,7 +89,7 @@ public class Fraction {
 
     /**
      * Converts the Fraction by dividing the numerator and denominator.
-     * @return reduced fraction converted to double
+     * @return reduced fraction converted to decimal
      */
     public double toDouble() {
         double reducedFraction = (double) getNumerator() / getDenominator();
