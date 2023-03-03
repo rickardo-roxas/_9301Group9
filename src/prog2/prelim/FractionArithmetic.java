@@ -490,7 +490,7 @@ public class FractionArithmetic {
      */
     private static int convertChoices(String givenChoice) {
         int choice = 0;
-        choice = Integer.valueOf(givenChoice);
+        choice = Integer.parseInt(givenChoice);
         return choice;
     } // end of convertChoices method
 
