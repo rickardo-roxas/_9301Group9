@@ -300,8 +300,8 @@ public class FractionArithmetic {
             fraction = new Fraction(); // instantiates new Fraction with default values
         } finally {
             System.out.println(promptMessage + ": " + fraction); // displays fraction in the console
-            return fraction; // new Fraction with user given attributes
         } // end of try-catch
+        return fraction; // new Fraction with user given attributes
     } // end of readFraction method
 
     /**
@@ -321,6 +321,8 @@ public class FractionArithmetic {
                         "Fraction Calculator" , JOptionPane.PLAIN_MESSAGE);
                 numerator = Integer.parseInt(inputString);
                 validNumerator = true;
+
+                // these program statements do not work as expected
             } catch (InputMismatchException exception) { // exception if input is not an integer
                 outputString = "Invalid Input. Numerator must be an integer.";
                 JOptionPane.showMessageDialog(null, outputString,
@@ -347,7 +349,15 @@ public class FractionArithmetic {
                 inputString = JOptionPane.showInputDialog(null, promptMessage + ": ",
                         "Fraction Calculator" , JOptionPane.PLAIN_MESSAGE);
                 denominator = Integer.parseInt(inputString);
-                validDenominator = true;
+                // this part was created on 3 March 2023
+                if (denominator == 0) {
+                    outputString = "Invalid denominator. Having a denominator of 0 will make the fraction invalid.";
+                    JOptionPane.showMessageDialog(null, outputString,
+                            "Fraction Calculator" , JOptionPane.ERROR_MESSAGE);
+                    validDenominator = false;
+                } else
+                    validDenominator = true;
+                // these program statements do not work as expected
             } catch (InputMismatchException exception) { // exception if input is not an integer
                 outputString = "Invalid Input. Denominator must be an integer.";
                 JOptionPane.showMessageDialog(null, outputString,
