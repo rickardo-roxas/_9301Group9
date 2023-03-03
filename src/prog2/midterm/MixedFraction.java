@@ -18,13 +18,13 @@ import prog2.prelim.Fraction;
 public class MixedFraction extends Fraction {
     private int wholeNumber; // holds the whole number for MixedFraction
 
-    public MixedFraction(Fraction fraction) {
-        super();
+    public MixedFraction(int numerator, int denominator) {
+        super(numerator, denominator);
         wholeNumber = 0;
     } // end of MixedFraction default constructor
 
-    public MixedFraction(Fraction fraction, int wholeNumber) {
-        super();
+    public MixedFraction(int numerator, int denominator, int wholeNumber) {
+        super(numerator, denominator);
         this.wholeNumber = wholeNumber;
     } // end of MixedFraction default constructor
 
@@ -36,5 +36,27 @@ public class MixedFraction extends Fraction {
         return wholeNumber;
     } // end of getWholeNumber accessor method
 
-    // TO DO
+    /**
+     * Converts the mixed
+     * @return
+     */
+    public String toString() {
+        String mixedFraction = getWholeNumber() + " " + getNumerator() + "/" + getDenominator();
+        return mixedFraction;
+    } // end of toString method
+
+    /**
+     * Computes the Mixed Fraction by multiplying the whole number with the denominator and
+     *  adding its product to the numerator.
+     * @return mixed fraction converted to decimal
+     */
+    public double toDouble() {
+        double reducedFraction = (double) (getDenominator() * getDenominator()) + getNumerator();
+        return reducedFraction;
+    } // end of toDouble method
+
+    @Override
+    protected Fraction add(Fraction addend) {
+        return super.add(addend);
+    } // end of overridden add method
 } // end of class MixedFraction
