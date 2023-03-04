@@ -56,7 +56,7 @@ public class MixedFraction extends Fraction {
     } // end of toDouble method
 
     @Override
-    protected Fraction add(Fraction addend) {
+    public Fraction add(Fraction addend) {
         return super.add(addend);
     } // end of overridden add method
 } // end of class MixedFraction
