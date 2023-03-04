@@ -15,8 +15,8 @@
 package prog2.prelim;
 
 public class Fraction {
-    private int numerator; // holds the numerator for Fraction
-    private int denominator; // holds the denominator for Fraction
+    public int numerator; // holds the numerator for Fraction
+    public int denominator; // holds the denominator for Fraction
 
     /**
      * Default constructor of Fraction class.
@@ -126,7 +126,7 @@ public class Fraction {
      * @param addend Fraction 2
      * @return simplified sum of Fraction 1 and Fraction 2
      */
-    protected Fraction add(Fraction addend) {
+    public Fraction add(Fraction addend) {
         int lCM = computeLCM(getDenominator(), addend.getDenominator()); // least common multiple
         int sumDenominator = lCM; // sets denominator as the least common multiple
         int sumNumerator = (lCM / this.denominator) * (this.numerator) +
@@ -195,7 +195,7 @@ public class Fraction {
      * Reduces the Fraction to its simplest form using its common greatest divisor
      * @return Fraction in its simplest form
      */
-    protected Fraction reduce() {
+    public Fraction reduce() {
         int GCD = computeGCD(numerator, denominator); // computes the greatest common divisor for given Fraction
         int reducedNumerator = numerator / GCD; // reduces the numerator with the greatest common divisor
         int reducedDenominator = denominator / GCD; // reduces the denominator with the greatest common divisor

@@ -32,8 +32,8 @@ public class MixedFractionArithmetic extends FractionArithmetic {
 
         // TO DO
 
-        MixedFraction mixedFraction1 = new MixedFraction(0,1);
-        MixedFraction mixedFraction2 = new MixedFraction(0,1);
+        MixedFraction mixedFraction1 = new MixedFractionBuilder().setNumerator(0).setDenominator(1).createMixedFraction();
+        MixedFraction mixedFraction2 = new MixedFractionBuilder().setNumerator(0).setDenominator(1).createMixedFraction();
         String choice = "";
         int userChoice = 0;
 
