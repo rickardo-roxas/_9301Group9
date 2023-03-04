@@ -172,7 +172,7 @@ import java.util.InputMismatchException;
 public class FractionArithmetic {
     static String inputString = ""; // static object for input
     static String outputString = ""; // static object for output
-    static double output = 0.0; // static object of output
+    static double output = 0.0; // static object of decimal output
 
     /**
      * Main entry point of the program
@@ -184,12 +184,12 @@ public class FractionArithmetic {
         String choice = ""; // choice returned from showMenu method
         int userChoice = 0; // String choice converted to using convertChoices method
 
-        showIntroduction();
+        showIntroduction(); // invokes a method that introduces the user to the program
 
         do {
             choice = showMenu(); // invokes showMenu method that returns a String choice
             userChoice = convertChoices(choice); // converts String choice to int using String.valueOf
-            System.out.println("User choice: " + userChoice); // prints the current user choice in the console
+            showUserChoice(userChoice); // prints the current user choice in the console
 
             switch (userChoice) {
                 case 1 -> // Value for Fraction1
@@ -446,7 +446,7 @@ public class FractionArithmetic {
      * userChoice[1] is the default Option.
      * @return Option string
      */
-    private static String showMenu() {
+    public static String showMenu() {
         JDialog.setDefaultLookAndFeelDecorated(true);
         String[] options = {"1","2","3","4","5","6","7","8"};
         int[] userChoices = {1,2,3,4,5,6,7,8};
@@ -472,7 +472,7 @@ public class FractionArithmetic {
      * userChoice[1] is the default Option.
      * @return Option string
      */
-    private static String showMenuReduce() {
+    public static String showMenuReduce() {
         JDialog.setDefaultLookAndFeelDecorated(true);
         String[] options = {"1","2","3"};
         String[] userChoices = {"Reduce Fraction1","Reduce Fraction2","Reduce Fraction1 and Fraction2"};
@@ -491,7 +491,7 @@ public class FractionArithmetic {
      * @param givenChoice choice (String)
      * @return choice (integer)
      */
-    private static int convertChoices(String givenChoice) {
+    protected static int convertChoices(String givenChoice) {
         int choice = 0;
         choice = Integer.parseInt(givenChoice);
         return choice;
@@ -507,4 +507,8 @@ public class FractionArithmetic {
         System.out.printf("%-10s %n" , promptMessage);
         System.out.printf("%-10s %-10s %-10f %n" , answerFraction , "or" , answerDecimal);
     } // end of showSolution method
+
+    protected static void showUserChoice(int userChoice) {
+        System.out.println("User choice: " + userChoice);
+    } // end of showUserChoice method
 } // end of class FractionArithmetic

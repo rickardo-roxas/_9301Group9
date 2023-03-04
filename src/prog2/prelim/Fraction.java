@@ -122,7 +122,7 @@ public class Fraction {
     } // end of computeGCD method
 
     /**
-     * Adds the Fraction addend and Fraction addend.
+     * Adds the Fraction1 addend and Fraction2 addend.
      * @param addend Fraction 2
      * @return simplified sum of Fraction 1 and Fraction 2
      */
