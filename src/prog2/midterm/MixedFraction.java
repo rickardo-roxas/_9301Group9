@@ -172,7 +172,8 @@ public class MixedFraction extends Fraction {
     } // end of add method
 
     /**
-     * Overrides the subtract method of the Fraction class to subtract a given Fraction object from this Fraction object.
+     * Overrides the subtract method of the Fraction class to subtract a given
+     * Fraction object from this Fraction object.
      * @param subtrahend the Fraction object to subtract from this object
      * @return the result of the subtraction as a Fraction object
      */
@@ -182,7 +183,8 @@ public class MixedFraction extends Fraction {
     } // end of overridden subtract method
 
     /**
-     * Subtracts a MixedFraction object and a Fraction object from this MixedFraction object, and returns the result as a new MixedFraction object.
+     * Subtracts a MixedFraction object and a Fraction object from this MixedFraction
+     * object, and returns the result as a new MixedFraction object.
      * @param subtrahend the MixedFraction object to subtract from this MixedFraction object
      * @param fractionSubtrahend the Fraction object to subtract from this MixedFraction object
      * @return the result of the subtraction as a new MixedFraction object
@@ -195,7 +197,8 @@ public class MixedFraction extends Fraction {
     } // end of subtract method
 
     /**
-     * Overrides the multiplyBy method in Fraction class to return a Fraction object that is the product of this Fraction and a given multiplicand.
+     * Overrides the multiplyBy method in Fraction class to return a Fraction object that is the
+     * product of this Fraction and a given multiplicand.
      * @param multiplicand the fraction to multiply this fraction by
      * @return a Fraction object that is the product of this Fraction and the given multiplicand
      */
@@ -218,7 +221,8 @@ public class MixedFraction extends Fraction {
     } // end of multiplyBy method
 
     /**
-     * Overrides the divideBy method of the parent class, and returns the result of dividing this Fraction object by the given dividend Fraction object.
+     * Overrides the divideBy method of the parent class, and returns the result of dividing
+     * this Fraction object by the given dividend Fraction object.
      * @param dividend the Fraction object to divide this object by
      * @return the result of dividing this object by the given dividend object
      */
