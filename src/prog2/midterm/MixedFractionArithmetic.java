@@ -19,13 +19,27 @@ import java.lang.*;
 import java.util.Scanner;
 import javax.swing.*;
 
+
 public class MixedFractionArithmetic extends FractionArithmetic {
+    static String inputString = "";
+    static String outputString = "";
+    static double output = 0.0;
+
+    /**
+     * This part was made on 6 March 2023.
+     * This part was made by RAGUDOS, Hannah
+     * Reads input from the user to create and perform operations on fractions or mixed fractions.
+     * Allows user to choose from a menu of operations.
+     * Assumes valid input for numerator, denominator, and whole number values.
+     * @param mixedFraction the mixed fraction to convert
+     * @return an equivalent Fraction object in improper form
+     */
          try {
-        int num, denom, whole;
+        int numerator, denominator, whole;
         MixedFraction fraction = null, f2 = null, mixedFraction;
         Fraction fraction1 = null, fraction2 = null, mixedFraction;
         Scanner sc = new Scanner(System.in); //scanner object
-        int ch;
+        int userChoice;
         while (true) {
             //display menu
             System.out.println("==================================");
@@ -40,10 +54,10 @@ public class MixedFractionArithmetic extends FractionArithmetic {
             System.out.println("8. Divide Fractions.n");
             System.out.println("9. Quit.n");
             System.out.print("Enter your choice: ");
-            ch = sc.nextInt(); //get user choice
-            if (ch == 9)
+            userChoice = sc.nextInt(); //get user choice
+            if userChoice == 9)
                 break; //choice to quit
-            if (ch >= 5 && ch <= 8) {
+            if (userChoice >= 5 && userChoice <= 8) {
                 //get first fraction
                 System.out.println("...............................");
                 System.out.println("ENTER THE FIRST FRACTION");
@@ -82,7 +96,15 @@ public class MixedFractionArithmetic extends FractionArithmetic {
                 denominator = sc.nextInt();
                 fraction2 = new MixedFraction(wholeNumber, numerator, denominator); //create MixedFraction object
             }
-            switch (ch) {
+
+            switch (userChoice) {
+
+                /**
+                 * Performs addition of two MixedFraction objects and prints the result in the console.
+                 * @param userChoice an integer representing the user's choice of operation
+                 * @param fraction1 the first MixedFraction object to add
+                 * @param fraction2 the second MixedFraction object to add
+                 */
                 case 1:
                     System.out.println("*****ANSWER*****");
                     //addition of two MixedFractions
@@ -97,6 +119,12 @@ public class MixedFractionArithmetic extends FractionArithmetic {
                     System.out.print(mixedFraction.toDouble());
                     System.out.println("n");
                     break;
+
+                /**
+                 * Subtracts two fractions, represented as objects of the Fraction class or its subclasses, and prints the result.
+                 * @param fraction1 the first fraction to subtract
+                 * @param fraction2 the second fraction to subtract
+                 */
                 case 2:
                     System.out.println("*****ANSWER*****");
                     //subtraction of MixedFractions
@@ -112,6 +140,14 @@ public class MixedFractionArithmetic extends FractionArithmetic {
                     System.out.print(mixedFraction.toDouble());
                     System.out.println("n");
                     break;
+
+                /**
+                 * Multiplies two fractions, represented as MixedFraction objects, and prints the
+                 * result in both fractional and decimal form.
+                 * Assumes valid input with non-negative whole number, and positive numerator and denominator values.
+                 * @param fraction1 the first MixedFraction to multiply
+                 * @param fraction2 the second MixedFraction to multiply
+                 */
                 case 3:
                     System.out.println("*****ANSWER*****");
                     //multiplication of MixedFractions
@@ -126,6 +162,15 @@ public class MixedFractionArithmetic extends FractionArithmetic {
                     System.out.print(mixedFraction.toDouble());
                     System.out.println("n");
                     break;
+
+                /**
+                 * Performs division of two MixedFraction objects and prints the result in
+                 * the form of a MixedFraction and a decimal.
+                 * Assumes valid input MixedFraction objects with non-negative whole number,
+                 * and positive numerator and denominator values.
+                 * @param fraction1 the first MixedFraction object to divide
+                 * @param fraction2 the second MixedFraction object to divide by
+                 */
                 case 4:
                     System.out.println("*****ANSWER*****");
                     //division of MixedFractions
@@ -141,6 +186,13 @@ public class MixedFractionArithmetic extends FractionArithmetic {
                     System.out.print(mixedFraction.toDouble());
                     System.out.println("n");
                     break;
+
+                /**
+                 * Adds two fractions, reduces the result to the simplest form, and prints it to the console.
+                 * Assumes valid input Fraction objects with non-negative numerator and positive denominator values.
+                 * @param fraction1 the first fraction to add
+                 * @param fraction2 the second fraction to add
+                 */
                 case 5:
                     System.out.println("*****ANSWER*****");
                     //addition of two fractions
@@ -156,6 +208,13 @@ public class MixedFractionArithmetic extends FractionArithmetic {
                     System.out.print(mixedFraction.toDouble());
                     System.out.println("n");
                     break;
+
+                /**
+                 * Performs subtraction of two fractions and prints the result.
+                 * Assumes valid input with non-negative numerator and denominator values.
+                 * @param fraction1 the first fraction to subtract
+                 * @param fraction2 the second fraction to subtract
+                 */
                 case 6:
                     System.out.println("ANSWER");
                     //subtraction of fractions
@@ -171,6 +230,13 @@ public class MixedFractionArithmetic extends FractionArithmetic {
                     System.out.print(mixedFraction.toDouble());
                     System.out.println("n");
                     break;
+
+                /**
+                 * Performs multiplication of two fractions and prints the result.
+                 * Assumes valid input with non-negative numerator and positive denominator values.
+                 * @param fraction1 the first fraction to multiply
+                 * @param fraction2 the second fraction to multiply
+                 */
                 case 7:
                     System.out.println("*****ANSWER*****");
                     //multiplication of fractions
@@ -186,6 +252,13 @@ public class MixedFractionArithmetic extends FractionArithmetic {
                     System.out.print(mixedFraction.toDouble());
                     System.out.println("n");
                     break;
+
+                /**
+                 * Performs division of two fractions and prints the result in mixed fraction and decimal form.
+                 * Assumes valid input with non-zero denominators.
+                 * @param fraction1 the first fraction
+                 * @param fraction2 the second fraction
+                 */
                 case 8:
                     System.out.println("*****ANSWER*****");
                     //division of fractions
@@ -209,10 +282,6 @@ public class MixedFractionArithmetic extends FractionArithmetic {
         e.printStackTrace();
     }
 
-
-    static String inputString = "";
-    static String outputString = "";
-    static double output = 0.0;
 
     /**
      * This part was made on 3 March 2023.
