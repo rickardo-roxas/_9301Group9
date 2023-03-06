@@ -11,16 +11,22 @@
  * </p>
  * The MixedFraction Class.
  */
+
 package prog2.midterm;
 
 import prog2.prelim.Fraction;
 
 public class MixedFraction extends Fraction {
+
+    // object field
     private int wholeNumber; // holds the whole number for MixedFraction
 
+    /**
+     * Construct a default mixed fraction with whole = 0
+     */
     public MixedFraction(Fraction fraction) {
         super(fraction.getNumerator(), fraction.getDenominator());
-        wholeNumber = 0;
+        wholeNumber = 0; // numerator and denominator are already from Fraction class
     } // end of MixedFraction default constructor
 
     public MixedFraction(int wholeNumber, Fraction fraction) {
