@@ -24,26 +24,42 @@ public class MixedFraction extends Fraction {
     /**
      * Construct a default mixed fraction with whole = 0
      */
+
     public MixedFraction(Fraction fraction) {
         super(fraction.getNumerator(), fraction.getDenominator());
         wholeNumber = 0; // numerator and denominator are already from Fraction class
     } // end of MixedFraction default constructor
 
+    /**
+     * Construct a mixed fraction with a given whole number part and fraction part
+     * @param wholeNumber The whole number of the mixed fraction
+     * @param fraction The fraction part of the mixed fraction
+     */
     public MixedFraction(int wholeNumber, Fraction fraction) {
         super(fraction.getNumerator(), fraction.getDenominator());
         this.wholeNumber = wholeNumber;
     } // end of MixedFraction default constructor
 
+    /**
+     * Setter/Mutator Method
+     * Sets the value of the whole of this mixed fraction to whole
+     * @param wholeNum The whole number to be assigned
+     */
     public void setWholeNumber(int wholeNum) {
         wholeNumber = wholeNum;
     } // end of setWholeNumber mutator method
 
+    /**
+     * Accessor/Getter Method
+     * @return The value of the whole of this mixed fraction
+     */
     public int getWholeNumber() {
         return wholeNumber;
     } // end of getWholeNumber accessor method
 
     /**
      * Concatenates the whole number, numerator, and denominator of Fraction.
+     * Stringifies the mixed fraction
      * @return fraction as String
      */
     public String toString() {
@@ -52,7 +68,8 @@ public class MixedFraction extends Fraction {
 
     /**
      * Computes the Mixed Fraction by multiplying the whole number with the denominator and
-     *  adding its product to the numerator.
+     * adding its product to the numerator.
+     * Converts the mixed fraction to decimal form
      * @return mixed fraction converted to decimal
      */
     public double toDouble() {
@@ -66,7 +83,7 @@ public class MixedFraction extends Fraction {
         numerator = denominator * wholeNumber + numerator;
 
         return new Fraction(numerator,denominator);
-    } // emd of convertToImproper method
+    } // end of convertToImproper method
 
     public MixedFraction convertToMixedNumbers(Fraction improperFraction) {
         int wholeNumber = 0;
