@@ -40,6 +40,9 @@ public class MixedFraction extends Fraction {
         this.wholeNumber = wholeNumber;
     } // end of MixedFraction default constructor
 
+    public MixedFraction(int wholeNumber, int numerator, int denominator) {
+    }
+
     /**
      * Setter/Mutator Method
      * Sets the value of the whole of this mixed fraction to whole

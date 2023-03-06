@@ -166,7 +166,7 @@ public class Fraction {
      * @param dividend second Fraction
      * @return simplified quotient of Fraction 1 and Fraction 2
      */
-    protected Fraction divideBy(Fraction dividend) {
+    public Fraction divideBy(Fraction dividend) {
         int quotientDenominator = this.denominator * dividend.getNumerator();
         int quotientNumerator = this.numerator * dividend.getDenominator();
         Fraction quotient = new Fraction(quotientNumerator, quotientDenominator);
