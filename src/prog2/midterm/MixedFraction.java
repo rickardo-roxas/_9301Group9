@@ -76,6 +76,12 @@ public class MixedFraction extends Fraction {
         return (double) (getNumerator() / getDenominator()) + getWholeNumber();
     } // end of toDouble method
 
+    /**
+     * Takes a MixedFraction object and returns an equivalent Fraction object in improper form.
+     * Assumes valid input with non-negative whole number, and positive numerator and denominator values.
+     * @param mixedFraction the mixed fraction to convert
+     * @return an equivalent Fraction object in improper form
+     */
     public Fraction convertToImproper(MixedFraction mixedFraction) {
         int wholeNumber = getWholeNumber();
         int numerator = mixedFraction.getNumerator();
@@ -84,6 +90,12 @@ public class MixedFraction extends Fraction {
 
         return new Fraction(numerator,denominator);
     } // end of convertToImproper method
+
+    /**
+     * Converts the given 'Fraction' object to a 'MixedFraction' object.
+     * @param improperFraction the 'Fraction' object to be converted to a 'MixedFraction' object
+     * @return the resulting 'MixedFraction' object
+     */
 
     public MixedFraction convertToMixedNumbers(Fraction improperFraction) {
         int wholeNumber = 0;
