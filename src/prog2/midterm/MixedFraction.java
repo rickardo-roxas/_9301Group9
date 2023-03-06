@@ -158,6 +158,12 @@ public class MixedFraction extends Fraction {
         return super.add(addend);
     } // end of overridden add method
 
+    /**
+     * Adds a MixedFraction object and a Fraction object and returns a new MixedFraction object as the sum.
+     * @param addend the MixedFraction object to be added
+     * @param fractionAddend the Fraction object to be added
+     * @return the sum of the two numbers as a new MixedFraction object
+     */
     protected MixedFraction add(MixedFraction addend, Fraction fractionAddend) {
         int sumWholeNumber = this.wholeNumber + addend.getWholeNumber();
         Fraction sumFraction = add(fractionAddend);
@@ -165,11 +171,22 @@ public class MixedFraction extends Fraction {
         return sum;
     } // end of add method
 
+    /**
+     * Overrides the subtract method of the Fraction class to subtract a given Fraction object from this Fraction object.
+     * @param subtrahend the Fraction object to subtract from this object
+     * @return the result of the subtraction as a Fraction object
+     */
     @Override
     protected Fraction subtract(Fraction subtrahend) {
         return super.subtract(subtrahend);
     } // end of overridden subtract method
 
+    /**
+     * Subtracts a MixedFraction object and a Fraction object from this MixedFraction object, and returns the result as a new MixedFraction object.
+     * @param subtrahend the MixedFraction object to subtract from this MixedFraction object
+     * @param fractionSubtrahend the Fraction object to subtract from this MixedFraction object
+     * @return the result of the subtraction as a new MixedFraction object
+     */
     protected MixedFraction subtract(MixedFraction subtrahend, Fraction fractionSubtrahend) {
         int differenceWholeNumber = this.wholeNumber - subtrahend.getWholeNumber();
         Fraction differenceFraction = subtract(fractionSubtrahend);
@@ -177,21 +194,50 @@ public class MixedFraction extends Fraction {
         return difference;
     } // end of subtract method
 
+    /**
+     * Overrides the multiplyBy method in Fraction class to return a Fraction object that is the product of this Fraction and a given multiplicand.
+     * @param multiplicand the fraction to multiply this fraction by
+     * @return a Fraction object that is the product of this Fraction and the given multiplicand
+     */
     @Override
     protected Fraction multiplyBy(Fraction multiplicand) {
         return super.multiplyBy(multiplicand);
     } // end of overridden multiplyBy method
 
+    /**
+     * Multiplies two MixedFraction objects and returns the result as a MixedFraction object.
+     * Assumes valid input with non-negative whole number, and positive numerator and denominator values.
+     * @param multiplier the first MixedFraction to multiply
+     * @param multiplicand the second MixedFraction to multiply
+     * @return the product of the two MixedFraction objects as a new MixedFraction object
+     */
     protected MixedFraction multiplyBy(MixedFraction multiplier, MixedFraction multiplicand) {
         Fraction multiplierFraction = convertToImproper(multiplier);
-        Fraction multiplicanFraction = convertToImproper(multiplicand);
+        Fraction multiplicandFraction = convertToImproper(multiplicand);
         multiplierFraction.
-    } // edn of multiplyBy method
+    } // end of multiplyBy method
 
+    /**
+     * Overrides the divideBy method of the parent class, and returns the result of dividing this Fraction object by the given dividend Fraction object.
+     * @param dividend the Fraction object to divide this object by
+     * @return the result of dividing this object by the given dividend object
+     */
     @Override
     protected Fraction divideBy(Fraction dividend) {
         return super.divideBy(dividend);
     } // end of overridden divideBy method
+
+    /**
+     * Overrides the reduce method of the superclass Fraction, and returns a reduced Fraction object.
+     * @return a reduced Fraction object
+     */
+    @Override
+    public Fraction reduce() {
+        return super.reduce();
+
+    } // end of overridden reduce method
+} // end of class MixedFraction
+
 
     /*
     protected MixedFraction divideBy(MixedFraction dividend, Fraction fractionDividend) {
@@ -268,10 +314,3 @@ public class MixedFraction extends Fraction {
         return result;
     }
     */
-    @Override
-    public Fraction reduce() {
-        return super.reduce();
-
-
-    } // end of overridden reduce method
-} // end of class MixedFraction
